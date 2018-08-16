@@ -1,4 +1,4 @@
-# Models of Computation: Semantics
+# Models of Computation - Semantics
 
 We need to know domains of quantifiers.
 
@@ -61,4 +61,20 @@ Example of valid formula:
 $$
 F = (\forall x : P(x)) \implies P(t)
 $$
-By intuition: if $P$ is true for all $x$ in the element of some domain $\mathbb{D}$, then $P$ must be true for **any single arbitrary element** $t$ in $\mathbb{D}$
+By intuition: if $P$ is true for all $x$ in the element of some domain $\mathbb{D}$, then $P$ must be true for **any single arbitrary element** $t$ in $\mathbb{D}$.
+
+## Quantifier Rules
+
+There is no immediate simplification for some formulas, example:
+
+$$
+\exists x : (P(x) \wedge Q(x))
+$$
+
+One does **not** simply push the quantifiers in.
+
+However, there are still some useful rules for quantifiers:
+
+$$
+\exists x : (F_1 \implies F_2) \equiv (\forall x : F_1) \implies (\exists x : F_2)
+$$

@@ -1,4 +1,4 @@
-# Predicate Logic: Syntax
+# Models of Computation Predicate Logic: Syntax
 
 ## Quantifiers 
 

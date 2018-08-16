@@ -1,4 +1,4 @@
-## Mechanized Reasoning
+## Models of Computation - Mechanized Reasoning
 
 A **literal** is a single boolean variable representing true or false (e.g. $P, Q$).
 
