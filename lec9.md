@@ -52,3 +52,32 @@ A unifier is in **normal form** if and only if:
 - For two clauses $C_1,C_2$. Let $\theta$ be an *mgu* for complementary literals $L_1\in C_1, \neg L_2 \in C_2$. Then, their resolvent will be $\theta(C_1\setminus\{L_1\})\cup\theta(C_2\setminus\{\neg L_2\})$.
 
 Therefore if we build a resolution tree for a predicate logic, we apply unifiers as we take two clauses and resolve them.
+
+### Factoring
+
+Let $C$ be a clause and $A_1,A_2 \in C$ where $A_1, A_2$ are unifiable with mgu $\theta$ then we can add the clause $\theta(C)$ (note that $\theta$ is applied to **every** literal inside of $C$). Factoring is often needed in order to generate new clauses **that will not end up creating an infinite loop of resolutions.**
+
+## Unsatisfiability by Resolution (Refutation)
+
+$\mathcal{C}$ is unsatisfiable if and only if the resolution method can produce $\emptyset$ in a **finite** number of steps. We say that the resolution is sound and complete.
+
+This gives us a proof procedure for unsatisfiability and validity. However, this does not give a **decision procedure** for unsatisfiability.
+
+Resolution only works if we apply a sensible search strategy, say for the set of clauses:
+
+$$
+\mathcal C = \{\{\neg P(x)\}, \{P(x)\}, \{Q(f(x)), \neg Q(x)\}\}
+$$
+
+We can resolve using two copies of the third clause and the unifier $\theta = \{x \mapsto f(x)\}$. This will result in an infinite resolution. However if we have chosen the first two clauses and resolve them on $P(x),\neg P(x)$, then it would have been easier.
+
+**Horn Clauses**:
+A horn clause is a clause with **at most** one single positive literal. Example: $\{\neg p_0, \neg p_1, \neg p_2, \cdots, \neg p_k, q\}$.
+
+Horn clauses are easier to work with in resolutions, hence choosing two horn clauses in a resolution is often a wise choice.
+
+Horn clauses can also be written as the following implication:
+
+$$
+p_0 \wedge p_1 \wedge p_2 \wedge \cdots \wedge p_k \implies q
+$$
