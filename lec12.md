@@ -1,4 +1,4 @@
-# COMP30026: Lecture 12
+# COMP30026: Relations and Functions
 
 ## Binary Relation
 
@@ -36,11 +36,19 @@ $$
 $$
 \forall x,y \in A : R(x,y) \implies R(y,x)
 $$
-- Antisymmetric: 
+- Asymmetric:
+  $$
+  \forall x,y \in A: R(x, y) \implies \neg R(y,x)
+  $$
 
-$$
-\forall x,y \in A : R(x,y) \wedge R(y,x) \implies x = y
-$$
+- Antisymmetric: 
+  $$
+  \forall x,y \in A : R(x,y) \wedge R(y,x) \implies x = y
+  $$
+
+
+
+
 - Transitivity: 
 
 $$
@@ -48,6 +56,7 @@ $$
 $$
 
 **Closures of Transitivity**:
+
 - The full relation is transitive.
 - Transitive relation are closed under intersection, meaning that if $R_1, R_2$ are transitive then $R_1 \cap R_2$.
 
@@ -85,7 +94,7 @@ $$
 
 ## Functions
 
-A function $f$ is a relation with the following property:
+A function $f​$ is a relation with the following property:
 
 $$
 (x,y) \in f \wedge (x,z) \in f \implies y = z
@@ -101,8 +110,57 @@ $$
 Meaning:
 
 - $f$ has domain $X$.
+- $f$ has co-domain $X$.
 - $f$ has range that is a subset of $Y$.
+
+Notice that **range and codomain are different**, in a sense that if $R$ denotes the range of the function then:
+$$
+R = \{f(x) \ | \ x \in X\} \subseteq Y
+$$
+This lenient syntax allows us to write $f : \mathbb{R} \mapsto \mathbb{R}$ for $f(x) = |x|$, as it still maps all the real number to **a subset** of the real numbers.
 
 **Recurrence**:
 
 A function can either be defined recursively, or in closed form (without reference to itself). However, it is not the case that a **closed form** of a function is always possible to find.
+
+**A function $f: X \mapsto Y$ is**:
+
+- Surjective if $F[X] = Y$, depends on how we define the "signature" of our function. The function $f(x) = |x|$ is:
+  - Not surjective if we define the signature as $f: \mathbb{R} \mapsto \mathbb{R}$.
+  - Surjective if we define $f$ as $f: \mathbb{R} \mapsto \mathbb{R^+_0}$, that is $\{x | x \in \mathbb{R},  x \geq 0\}$.
+- Injective if $f(x) = f(y) \implies x = y​$.
+- Bijective iff it is surjective and injective.
+
+**Composition**:
+$$
+(g \circ f)(x) = g(f(x))
+$$
+
+- Note that the order is difference for relation, this is pronounced "$g$ after $f$".
+- $\circ$ is associative over functions, and we have the function $\mathrm{id}_X$ is the identity function for domain $X$ which is the identity element for composition.
+
+**Partial Functions**:
+$$
+f : X\hookrightarrow Y
+$$
+
+- Used to denote that $f$ is only defined on a proper subset of $X$.
+
+- An example of such a function is
+  $$
+  f(n) = \left\{\begin{array}{cc}
+  42 & n = 0 \\
+  f(n-2) & n \neq 0
+  \end{array}\right.
+  $$
+  which is only defined when $n$ is a positive even number.
+
+- It can be impossible to determine of the domain of a function, consider the Collatz Conjecture
+  $$
+  c(n) = \left\{\begin{array}{cc}
+  1 & n = 1 \\
+  c(\frac{n}{2}) & n \text{ is even} \\
+  c(3n+1 & n) \text{ is odd}
+  \end{array}\right.
+  $$
+  The function $c : \mathbb{N} \hookrightarrow \mathbb{N}$ is partial, but it is not known that the function is total.

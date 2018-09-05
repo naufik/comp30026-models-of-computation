@@ -1,6 +1,8 @@
 # Tutorial 4
 
-### Question 1
+## Question 36
+
+### Part A
 $$
 h(f(x), g(y, f(x)), y) \ | \ h(f(u), g(v,v), u)
 $$
@@ -18,7 +20,7 @@ x = f(x) \\
 \therefore \text{no mgu}
 $$
 
-### Question 2
+### Part B
 
 $$
 \theta = 
@@ -31,3 +33,15 @@ $$
     \end{array}
 \right\}
 $$
+
+### Part C
+
+Failure by difference of constants.
+
+## Question 37
+
+$$
+S_1 = \forall x : P(x) \implies \neg H(x) \\
+S_2 = \exists x : P(x) \wedge \neg H(x)
+$$
+
